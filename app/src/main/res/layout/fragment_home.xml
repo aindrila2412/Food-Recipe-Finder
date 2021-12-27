@@ -1,0 +1,79 @@
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/pullToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        >
+
+        <TextView
+            android:id="@+id/error_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:visibility="gone"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <ImageView
+            android:id="@+id/recipe_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_recipe"
+            app:layout_constraintStart_toStartOf="@id/error_tv"
+            app:layout_constraintEnd_toEndOf="@id/error_tv"
+            app:layout_constraintTop_toBottomOf="@id/error_tv"
+            />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/recipe_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/search_bg"
+            android:theme="@style/ThemeOverlay.SearchView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:queryHint="Enter search Recipe"
+            android:padding="8dp"
+            app:defaultQueryHint="Enter search Recipe"
+            app:iconifiedByDefault="false"
+            app:submitBackground="@drawable/search_bg"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recipe_list_rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipe_search_view"
+            tools:listitem="@layout/recipe_item_view"
+            />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_circular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Widget.MaterialComponents.CircularProgressIndicator"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
